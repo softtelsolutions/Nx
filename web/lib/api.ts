@@ -53,11 +53,27 @@ export const authApi = {
 export const productApi = {
   getAll: () => api.get('/products'),
   getById: (id: string) => api.get(`/products/${id}`),
+  create: (productData: any) => api.post('/products', productData),
+  update: (id: string, productData: any) => api.put(`/products/${id}`, productData),
+  delete: (id: string) => api.delete(`/products/${id}`),
+  uploadImage: (formData: any) => api.post('/products/upload', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+  }),
 };
 
 export const orderApi = {
   create: (orderData: any) => api.post('/orders', orderData),
   getUserOrders: () => api.get('/orders/user'),
+  getAllOrders: () => api.get('/orders'),
+  updateOrder: (id: string, orderData: { status?: string; paymentStatus?: string }) => 
+    api.put(`/orders/${id}`, orderData),
+};
+
+// Helper to prepend backend base URL to relative image paths
+export const getImageUrl = (imagePath: string | undefined) => {
+  if (!imagePath) return 'https://via.placeholder.com/600';
+  if (imagePath.startsWith('http')) return imagePath;
+  return `${rawBaseUrl}${imagePath.startsWith('/') ? '' : '/'}${imagePath}`;
 };
 
 export default api;

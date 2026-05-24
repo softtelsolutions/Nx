@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useCart, Product } from '../context/CartContext';
+import { getImageUrl } from '../lib/api';
 
 interface ProductCardProps {
   product: Product;
@@ -14,7 +15,11 @@ export default function ProductCard({ product }: ProductCardProps) {
       <Link href={`/products/${product.slug || product._id}`}>
         <div className="aspect-square bg-gray-50 rounded-2xl mb-4 overflow-hidden flex items-center justify-center relative">
           <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-[0.02] transition-opacity" />
-          <span className="text-gray-300 text-xs font-medium uppercase tracking-widest">Image Placeholder</span>
+          <img 
+            src={getImageUrl(product.image)} 
+            alt={product.name}
+            className="object-contain w-full h-full p-4 mix-blend-multiply group-hover:scale-105 transition-transform duration-300"
+          />
         </div>
         
         <div className="space-y-1">
