@@ -1,5 +1,6 @@
 'use client';
 import { useCart, Product } from '../context/CartContext';
+import { getImageUrl } from '../lib/api';
 
 interface CartItemProps {
   item: Product;
@@ -10,8 +11,12 @@ export default function CartItem({ item }: CartItemProps) {
 
   return (
     <div className="flex flex-col sm:flex-row items-center gap-6 bg-white p-6 rounded-3xl border border-gray-50 shadow-sm">
-      <div className="w-24 h-24 bg-gray-100 rounded-2xl flex-shrink-0 flex items-center justify-center">
-        <span className="text-[10px] text-gray-400">Image</span>
+      <div className="w-24 h-24 bg-gray-100 rounded-2xl flex-shrink-0 flex items-center justify-center overflow-hidden">
+        <img 
+          src={getImageUrl(item.image)} 
+          alt={item.name}
+          className="object-contain w-full h-full p-2 mix-blend-multiply"
+        />
       </div>
 
       <div className="flex-grow text-center sm:text-left">

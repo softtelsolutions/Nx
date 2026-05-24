@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+    <rect width="400" height="400" fill="#06B6D4" />
+    <circle cx="200" cy="200" r="120" fill="#ffffff" opacity="0.15" />
+    
+    <!-- Bag / Box icon drawn with SVG -->
+    <path d="M160 160 C 160 110, 240 110, 240 160" stroke="#ffffff" stroke-width="8" fill="none" opacity="0.8" />
+    <rect x="140" y="160" width="120" height="100" rx="15" fill="#ffffff" opacity="0.9" />
+    
+    <!-- Text contents -->
+    <text x="50%" y="320" dominant-baseline="middle" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="900" fill="#ffffff">Non-Stick Cookware Set</text>
+    <text x="50%" y="350" dominant-baseline="middle" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#ffffff" opacity="0.6">PREMIUM RETAIL</text>
+  </svg>
